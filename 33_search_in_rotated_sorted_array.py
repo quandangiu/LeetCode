@@ -2,10 +2,9 @@
 # Difficulty: Medium
 # Given an integer array nums sorted in ascending order (with distinct values) possibly rotated,
 # and an integer target, return the index of target if it is in nums, or -1 if it is not.
-# You must write an algorithm with O(log n) runtime complexity.
 
 class Solution:
-    def search(self, nums: list[int], target: int) -> int:
+    def search(self, nums, target):
         left, right = 0, len(nums) - 1
         
         while left <= right:
@@ -14,15 +13,12 @@ class Solution:
             if nums[mid] == target:
                 return mid
             
-            # Check which half is sorted
             if nums[left] <= nums[mid]:
-                # Left half is sorted
                 if nums[left] <= target < nums[mid]:
                     right = mid - 1
                 else:
                     left = mid + 1
             else:
-                # Right half is sorted
                 if nums[mid] < target <= nums[right]:
                     left = mid + 1
                 else:

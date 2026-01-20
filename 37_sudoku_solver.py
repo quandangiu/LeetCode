@@ -3,21 +3,15 @@
 # Write a program to solve a Sudoku puzzle by filling the empty cells.
 
 class Solution:
-    def solveSudoku(self, board: list[list[str]]) -> None:
-        """
-        Do not return anything, modify board in-place instead.
-        """
+    def solveSudoku(self, board):
         def isValid(board, row, col, num):
-            # Check row
             if num in board[row]:
                 return False
             
-            # Check column
             for i in range(9):
                 if board[i][col] == num:
                     return False
             
-            # Check 3x3 box
             box_row, box_col = 3 * (row // 3), 3 * (col // 3)
             for i in range(box_row, box_row + 3):
                 for j in range(box_col, box_col + 3):

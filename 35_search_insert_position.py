@@ -2,10 +2,9 @@
 # Difficulty: Easy
 # Given a sorted array of distinct integers and a target value, 
 # return the index if the target is found. If not, return the index where it would be inserted.
-# You must write an algorithm with O(log n) runtime complexity.
 
 class Solution:
-    def searchInsert(self, nums: list[int], target: int) -> int:
+    def searchInsert(self, nums, target):
         left, right = 0, len(nums) - 1
         
         while left <= right:

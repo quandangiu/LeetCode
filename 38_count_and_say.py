@@ -1,15 +1,12 @@
 # 38. Count and Say
 # Difficulty: Medium
-# The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
-# countAndSay(1) = "1"
-# countAndSay(n) is the run-length encoding of countAndSay(n - 1).
+# The count-and-say sequence is a sequence of digit strings defined by the recursive formula.
 
 class Solution:
-    def countAndSay(self, n: int) -> str:
+    def countAndSay(self, n):
         if n == 1:
             return "1"
         
-        # Get previous result
         prev = self.countAndSay(n - 1)
         
         result = []
@@ -22,7 +19,6 @@ class Solution:
                 result.append(str(count) + prev[i - 1])
                 count = 1
         
-        # Don't forget the last group
         result.append(str(count) + prev[-1])
         
         return ''.join(result)

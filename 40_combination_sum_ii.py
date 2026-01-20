@@ -2,12 +2,11 @@
 # Difficulty: Medium
 # Given a collection of candidate numbers and a target number, 
 # find all unique combinations where the candidate numbers sum to target.
-# Each number may only be used once in the combination.
 
 class Solution:
-    def combinationSum2(self, candidates: list[int], target: int) -> list[list[int]]:
+    def combinationSum2(self, candidates, target):
         result = []
-        candidates.sort()  # Sort to handle duplicates
+        candidates.sort()
         
         def backtrack(start, current, remaining):
             if remaining == 0:
@@ -18,11 +17,9 @@ class Solution:
                 return
             
             for i in range(start, len(candidates)):
-                # Skip duplicates
                 if i > start and candidates[i] == candidates[i - 1]:
                     continue
                 
-                # Early termination since array is sorted
                 if candidates[i] > remaining:
                     break
                 

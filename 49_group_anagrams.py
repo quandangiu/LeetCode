@@ -1,16 +1,14 @@
 # 49. Group Anagrams
 # Difficulty: Medium
-# Given an array of strings strs, group the anagrams together. 
-# You can return the answer in any order.
+# Given an array of strings strs, group the anagrams together.
 
 from collections import defaultdict
 
 class Solution:
-    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+    def groupAnagrams(self, strs):
         anagram_map = defaultdict(list)
         
         for s in strs:
-            # Use sorted string as key
             key = ''.join(sorted(s))
             anagram_map[key].append(s)
         

@@ -4,11 +4,10 @@
 # compute how much water it can trap after raining.
 
 class Solution:
-    def trap(self, height: list[int]) -> int:
+    def trap(self, height):
         if not height:
             return 0
         
-        # Two pointer approach
         left, right = 0, len(height) - 1
         left_max = right_max = 0
         water = 0

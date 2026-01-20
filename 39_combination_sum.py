@@ -2,10 +2,9 @@
 # Difficulty: Medium
 # Given an array of distinct integers candidates and a target integer target, 
 # return a list of all unique combinations of candidates where the chosen numbers sum to target.
-# The same number may be chosen from candidates an unlimited number of times.
 
 class Solution:
-    def combinationSum(self, candidates: list[int], target: int) -> list[list[int]]:
+    def combinationSum(self, candidates, target):
         result = []
         
         def backtrack(start, current, remaining):
@@ -18,7 +17,6 @@ class Solution:
             
             for i in range(start, len(candidates)):
                 current.append(candidates[i])
-                # Pass i (not i+1) because we can reuse the same element
                 backtrack(i, current, remaining - candidates[i])
                 current.pop()
         

@@ -4,14 +4,10 @@
 # or -1 if needle is not part of haystack.
 
 class Solution:
-    def strStr(self, haystack: str, needle: str) -> int:
+    def strStr(self, haystack, needle):
         if not needle:
             return 0
         
-        # Simple approach using Python's find
-        # return haystack.find(needle)
-        
-        # Manual implementation
         n, m = len(haystack), len(needle)
         
         for i in range(n - m + 1):

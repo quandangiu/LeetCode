@@ -6,7 +6,7 @@
 from collections import Counter
 
 class Solution:
-    def findSubstring(self, s: str, words: list[str]) -> list[int]:
+    def findSubstring(self, s, words):
         if not s or not words:
             return []
         

@@ -1,10 +1,9 @@
 # 46. Permutations
 # Difficulty: Medium
-# Given an array nums of distinct integers, return all possible permutations. 
-# You can return the answer in any order.
+# Given an array nums of distinct integers, return all possible permutations.
 
 class Solution:
-    def permute(self, nums: list[int]) -> list[list[int]]:
+    def permute(self, nums):
         result = []
         
         def backtrack(current, remaining):
