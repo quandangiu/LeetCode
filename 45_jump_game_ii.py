@@ -1,8 +1,3 @@
-# 45. Jump Game II
-# Difficulty: Medium
-# You are given a 0-indexed array of integers nums of length n. 
-# Return the minimum number of jumps to reach nums[n - 1].
-
 class Solution:
     def jump(self, nums):
         n = len(nums)
@@ -24,11 +19,3 @@ class Solution:
                     break
         
         return jumps
-
-
-# Test
-if __name__ == "__main__":
-    sol = Solution()
-    
-    print(sol.jump([2, 3, 1, 1, 4]))  # 2
-    print(sol.jump([2, 3, 0, 1, 4]))  # 2

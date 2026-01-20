@@ -1,8 +1,3 @@
-# 32. Longest Valid Parentheses
-# Difficulty: Hard
-# Given a string containing just the characters '(' and ')', 
-# return the length of the longest valid (well-formed) parentheses substring.
-
 class Solution:
     def longestValidParentheses(self, s):
         n = len(s)
@@ -24,13 +19,3 @@ class Solution:
                 max_len = max(max_len, dp[i])
         
         return max_len
-
-
-# Test
-if __name__ == "__main__":
-    sol = Solution()
-    
-    print(sol.longestValidParentheses("(()"))  # 2
-    print(sol.longestValidParentheses(")()())"))  # 4
-    print(sol.longestValidParentheses(""))  # 0
-    print(sol.longestValidParentheses("()(()"))  # 2

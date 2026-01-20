@@ -1,8 +1,3 @@
-# 47. Permutations II
-# Difficulty: Medium
-# Given a collection of numbers that might contain duplicates, 
-# return all possible unique permutations in any order.
-
 class Solution:
     def permuteUnique(self, nums):
         result = []
@@ -29,11 +24,3 @@ class Solution:
         
         backtrack([])
         return result
-
-
-# Test
-if __name__ == "__main__":
-    sol = Solution()
-    
-    print(sol.permuteUnique([1, 1, 2]))  # [[1, 1, 2], [1, 2, 1], [2, 1, 1]]
-    print(sol.permuteUnique([1, 2, 3]))

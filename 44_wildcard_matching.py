@@ -1,7 +1,3 @@
-# 44. Wildcard Matching
-# Difficulty: Hard
-# Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*'.
-
 class Solution:
     def isMatch(self, s, p):
         m, n = len(s), len(p)
@@ -21,13 +17,3 @@ class Solution:
                     dp[i][j] = dp[i - 1][j - 1]
         
         return dp[m][n]
-
-
-# Test
-if __name__ == "__main__":
-    sol = Solution()
-    
-    print(sol.isMatch("aa", "a"))  # False
-    print(sol.isMatch("aa", "*"))  # True
-    print(sol.isMatch("cb", "?a"))  # False
-    print(sol.isMatch("adceb", "*a*b"))  # True

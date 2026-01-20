@@ -1,61 +1,42 @@
-# 37. Sudoku Solver
-# Difficulty: Hard
-# Write a program to solve a Sudoku puzzle by filling the empty cells.
-
 class Solution:
     def solveSudoku(self, board):
-        def isValid(board, row, col, num):
-            if num in board[row]:
-                return False
-            
-            for i in range(9):
-                if board[i][col] == num:
-                    return False
-            
-            box_row, box_col = 3 * (row // 3), 3 * (col // 3)
-            for i in range(box_row, box_row + 3):
-                for j in range(box_col, box_col + 3):
-                    if board[i][j] == num:
-                        return False
-            
-            return True
+        rows = [set() for _ in range(9)]
+        cols = [set() for _ in range(9)]
+        boxes = [set() for _ in range(9)]
+        empty = []
         
-        def solve(board):
-            for i in range(9):
-                for j in range(9):
-                    if board[i][j] == '.':
-                        for num in '123456789':
-                            if isValid(board, i, j, num):
-                                board[i][j] = num
-                                
-                                if solve(board):
-                                    return True
-                                
-                                board[i][j] = '.'
-                        
-                        return False
-            
-            return True
+        for i in range(9):
+            for j in range(9):
+                if board[i][j] != '.':
+                    num = board[i][j]
+                    rows[i].add(num)
+                    cols[j].add(num)
+                    boxes[(i // 3) * 3 + j // 3].add(num)
+                else:
+                    empty.append((i, j))
         
-        solve(board)
-
-
-# Test
-if __name__ == "__main__":
-    sol = Solution()
-    
-    board = [
-        ["5","3",".",".","7",".",".",".","."],
-        ["6",".",".","1","9","5",".",".","."],
-        [".","9","8",".",".",".",".","6","."],
-        ["8",".",".",".","6",".",".",".","3"],
-        ["4",".",".","8",".","3",".",".","1"],
-        ["7",".",".",".","2",".",".",".","6"],
-        [".","6",".",".",".",".","2","8","."],
-        [".",".",".","4","1","9",".",".","5"],
-        [".",".",".",".","8",".",".","7","9"]
-    ]
-    
-    sol.solveSudoku(board)
-    for row in board:
-        print(row)
+        def backtrack(idx):
+            if idx == len(empty):
+                return True
+            
+            i, j = empty[idx]
+            box_idx = (i // 3) * 3 + j // 3
+            
+            for num in '123456789':
+                if num not in rows[i] and num not in cols[j] and num not in boxes[box_idx]:
+                    board[i][j] = num
+                    rows[i].add(num)
+                    cols[j].add(num)
+                    boxes[box_idx].add(num)
+                    
+                    if backtrack(idx + 1):
+                        return True
+                    
+                    board[i][j] = '.'
+                    rows[i].remove(num)
+                    cols[j].remove(num)
+                    boxes[box_idx].remove(num)
+            
+            return False
+        
+        backtrack(0)

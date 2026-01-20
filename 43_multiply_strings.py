@@ -1,8 +1,3 @@
-# 43. Multiply Strings
-# Difficulty: Medium
-# Given two non-negative integers num1 and num2 represented as strings, 
-# return the product of num1 and num2, also represented as a string.
-
 class Solution:
     def multiply(self, num1, num2):
         if num1 == "0" or num2 == "0":
@@ -22,12 +17,3 @@ class Solution:
         
         result_str = ''.join(map(str, result))
         return result_str.lstrip('0') or '0'
-
-
-# Test
-if __name__ == "__main__":
-    sol = Solution()
-    
-    print(sol.multiply("2", "3"))  # "6"
-    print(sol.multiply("123", "456"))  # "56088"
-    print(sol.multiply("0", "52"))  # "0"

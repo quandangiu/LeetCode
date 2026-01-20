@@ -1,7 +1,3 @@
-# 46. Permutations
-# Difficulty: Medium
-# Given an array nums of distinct integers, return all possible permutations.
-
 class Solution:
     def permute(self, nums):
         result = []
@@ -18,14 +14,3 @@ class Solution:
         
         backtrack([], nums)
         return result
-
-
-# Test
-if __name__ == "__main__":
-    sol = Solution()
-    
-    print(sol.permute([1, 2, 3]))
-    # [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
-    
-    print(sol.permute([0, 1]))  # [[0, 1], [1, 0]]
-    print(sol.permute([1]))  # [[1]]

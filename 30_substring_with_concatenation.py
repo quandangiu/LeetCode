@@ -1,8 +1,3 @@
-# 30. Substring with Concatenation of All Words
-# Difficulty: Hard
-# You are given a string s and an array of strings words. All the strings of words are of the same length.
-# Return all starting indices of substring(s) in s that is a concatenation of each word in words exactly once.
-
 from collections import Counter
 
 class Solution:
@@ -42,12 +37,3 @@ class Solution:
                     left = j + word_len
         
         return result
-
-
-# Test
-if __name__ == "__main__":
-    sol = Solution()
-    
-    print(sol.findSubstring("barfoothefoobarman", ["foo", "bar"]))  # [0, 9]
-    print(sol.findSubstring("wordgoodgoodgoodbestword", ["word", "good", "best", "word"]))  # []
-    print(sol.findSubstring("barfoofoobarthefoobarman", ["bar", "foo", "the"]))  # [6, 9, 12]
