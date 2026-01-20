@@ -1,2 +1,11 @@
-Training code python with leetcode :https://leetcode.com/problemset/
-Latest update: 1 - 50 coding exercises
+# LeetCode Python Solutions 🐍
+
+Training Python with LeetCode problems.
+
+## 🔗 Resources
+
+- [LeetCode Problems](https://leetcode.com/problemset/)
+
+## 📅 Latest Update
+
+**50 coding exercises** completed! (Problems 1-50)
