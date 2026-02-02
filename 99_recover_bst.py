@@ -1,21 +1,22 @@
 class Solution:
     def recoverTree(self, root):
-        first = second = prev = None
+        self.first = None
+        self.second = None
+        self.prev = None
         
         def inorder(node):
-            nonlocal first, second, prev
             if not node:
                 return
             
             inorder(node.left)
             
-            if prev and node.val < prev.val:
-                if not first:
-                    first = prev
-                second = node
-            prev = node
+            if self.prev and node.val < self.prev.val:
+                if not self.first:
+                    self.first = self.prev
+                self.second = node
+            self.prev = node
             
             inorder(node.right)
         
         inorder(root)
-        first.val, second.val = second.val, first.val
+        self.first.val, self.second.val = self.second.val, self.first.val

@@ -1,14 +1,13 @@
 class Solution:
     def totalNQueens(self, n):
-        count = 0
+        self.count = 0
         cols = set()
         diag1 = set()
         diag2 = set()
         
         def backtrack(row):
-            nonlocal count
             if row == n:
-                count += 1
+                self.count += 1
                 return
             
             for col in range(n):
@@ -26,4 +25,4 @@ class Solution:
                 diag2.remove(row + col)
         
         backtrack(0)
-        return count
+        return self.count
